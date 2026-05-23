@@ -94,6 +94,7 @@ static void checkversion(void);
 extern int yyparse(void);
 
 /* Global variable definitions (declared extern in config.h) */
+/* Note: dtab, ftab, fntab, errbuf, yyline, yyfile are defined in config.y */
 char	*machinename;
 char	*machinearch;
 struct cfgfile_head cfgfiles;
@@ -102,12 +103,6 @@ struct opt_head opt, mkopt, rmopts;
 struct opt_list_head otab;
 struct hint_head hints;
 struct includepath_head includepath;
-struct device_head dtab;
-struct file_list_head ftab;
-struct files_name_head fntab;
-char	errbuf[80];
-int	yyline;
-const char	*yyfile;
 
 struct hdr_list {
 	char *h_name;
