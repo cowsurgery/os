@@ -184,3 +184,5 @@ _elf_aux_info(int aux, void *buf, int buflen)
 	}
 	return (res);
 }
+
+__weak_reference(_elf_aux_info, elf_aux_info);
