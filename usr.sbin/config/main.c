@@ -93,6 +93,15 @@ static void kernconfdump(const char *);
 static void checkversion(void);
 extern int yyparse(void);
 
+/* Global variable definitions (declared extern in config.h) */
+char	*machinename;
+char	*machinearch;
+SLIST_HEAD(, cputype) cputype;
+SLIST_HEAD(opt_head, opt) opt, mkopt, rmopts;
+SLIST_HEAD(, opt_list) otab;
+STAILQ_HEAD(hint_head, hint) hints;
+SLIST_HEAD(, includepath) includepath;
+
 struct hdr_list {
 	char *h_name;
 	struct hdr_list *h_next;
