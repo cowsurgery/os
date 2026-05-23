@@ -96,11 +96,11 @@ extern int yyparse(void);
 /* Global variable definitions (declared extern in config.h) */
 char	*machinename;
 char	*machinearch;
-SLIST_HEAD(, cputype) cputype;
-SLIST_HEAD(opt_head, opt) opt, mkopt, rmopts;
-SLIST_HEAD(, opt_list) otab;
-STAILQ_HEAD(hint_head, hint) hints;
-SLIST_HEAD(, includepath) includepath;
+struct cputype_head cputype;
+struct opt_head opt, mkopt, rmopts;
+struct opt_list_head otab;
+struct hint_head hints;
+struct includepath_head includepath;
 
 struct hdr_list {
 	char *h_name;
