@@ -42,7 +42,8 @@ struct cfgfile {
 	STAILQ_ENTRY(cfgfile)	cfg_next;
 	char	*cfg_path;
 };
-STAILQ_HEAD(, cfgfile) cfgfiles;
+STAILQ_HEAD(cfgfile_head, cfgfile);
+extern struct cfgfile_head cfgfiles;
 
 struct file_list {
 	STAILQ_ENTRY(file_list) f_next;
@@ -193,15 +194,18 @@ void	cfgfile_add(const char *);
 void	cfgfile_removeall(void);
 FILE	*open_makefile_template(void);
 
-extern STAILQ_HEAD(device_head, device) dtab;
+STAILQ_HEAD(device_head, device);
+extern struct device_head dtab;
 
 extern char	errbuf[80];
 extern int	yyline;
 extern const	char *yyfile;
 
-extern STAILQ_HEAD(file_list_head, file_list) ftab;
+STAILQ_HEAD(file_list_head, file_list);
+extern struct file_list_head ftab;
 
-extern STAILQ_HEAD(files_name_head, files_name) fntab;
+STAILQ_HEAD(files_name_head, files_name);
+extern struct files_name_head fntab;
 
 extern int	profiling;
 extern int	debugging;
