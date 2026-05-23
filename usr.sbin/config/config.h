@@ -110,7 +110,8 @@ struct cputype {
 	SLIST_ENTRY(cputype) cpu_next;
 };
 
-extern SLIST_HEAD(, cputype) cputype;
+SLIST_HEAD(cputype_head, cputype);
+extern struct cputype_head cputype;
 
 /*
  * A set of options may also be specified which are like CPU types,
@@ -125,7 +126,8 @@ struct opt {
 	SLIST_ENTRY(opt) op_append;
 };
 
-extern SLIST_HEAD(opt_head, opt) opt, mkopt, rmopts;
+SLIST_HEAD(opt_head, opt);
+extern struct opt_head opt, mkopt, rmopts;
 
 struct opt_list {
 	char *o_name;
@@ -135,21 +137,24 @@ struct opt_list {
 	SLIST_ENTRY(opt_list) o_next;
 };
 
-extern SLIST_HEAD(, opt_list) otab;
+SLIST_HEAD(opt_list_head, opt_list);
+extern struct opt_list_head otab;
 
 struct hint {
 	char	*hint_name;
 	STAILQ_ENTRY(hint) hint_next;
 };
 
-extern STAILQ_HEAD(hint_head, hint) hints;
+STAILQ_HEAD(hint_head, hint);
+extern struct hint_head hints;
 
 struct includepath {
 	char	*path;
 	SLIST_ENTRY(includepath) path_next;
 };
 
-extern SLIST_HEAD(, includepath) includepath;
+SLIST_HEAD(includepath_head, includepath);
+extern struct includepath_head includepath;
 
 /*
  * Tag present in the kernelconf.tmlp template file. It's mandatory for those
