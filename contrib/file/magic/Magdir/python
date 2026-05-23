@@ -41,7 +41,7 @@
 
 
 # from module.submodule import func1, func2
-0	regex	\^from\\s+(\\w|\\.)+\\s+import.*$	Python script text executable
+0	regex	\^from[[:space:]]+([[:alnum:]_]|\\.)+[[:space:]]+import.*$	Python script text executable
 !:mime text/x-python
 
 # def __init__ (self, ...):
@@ -62,7 +62,7 @@
 # except: or finally:
 # block
 0	search/4096	try:
->&0	regex	\^\\s*except.*:	Python script text executable
+>&0	regex	\^[[:space:]]*except.*:	Python script text executable
 !:mime text/x-python
 >&0	search/4096	finally:	Python script text executable
 !:mime text/x-python
