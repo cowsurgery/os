@@ -40,6 +40,8 @@
 #include <limits.h>
 #include "localedef.h"
 
+int yydebug;
+
 %}
 %union {
 	int		num;
